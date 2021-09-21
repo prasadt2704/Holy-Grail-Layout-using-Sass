@@ -1,0 +1,95 @@
+// add variables here:
+$defaultColour: lightgray;
+$defaultFontSize: 1.5em;
+
+//add functions here:
+@mixin displayCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin defaultData($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+//scss
+.container {
+  @include defaultData(550px, 1000px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid black;
+  flex-wrap: nowrap;
+
+
+  .header {
+    @include displayCenter();
+    @include defaultData(50px, 990px);
+    background: $defaultColour;
+    border: 5px solid black;
+    align-self: flex-start;
+    margin-bottom: 10px;
+    &::after {
+      content: "Header";
+      font-size: $defaultFontSize;
+    }
+  }
+
+  .middle {
+    display: flex;
+    @include defaultData(450px, auto);
+    justify-content: space-between;
+
+    .side-nav-1 {
+      @include displayCenter();
+      @include defaultData(400px, auto);
+      background: $defaultColour;
+      border: 5px solid black;
+
+      &::after {
+        content: "Side Navbar";
+        font-size: $defaultFontSize;
+      }
+    }
+
+    .content {
+      @include displayCenter();
+      @include defaultData(400px, 700px);
+      background: $defaultColour;
+      border: 5px solid black;
+
+      &::after {
+        content: "Main Content";
+        font-size: $defaultFontSize;
+      }
+    }
+
+    .side-nav-2 {
+      @include displayCenter();
+      @include defaultData(400px, auto);
+      background: $defaultColour;
+      border: 5px solid black;
+
+      &::after {
+        content: "Side Navbar";
+        font-size: $defaultFontSize;
+      }
+    }
+  }
+
+  .footer {
+    @include displayCenter();
+    @include defaultData(50px, 990px);
+    background: $defaultColour;
+    border: 5px solid black;
+    align-self: flex-end;
+
+    &::after {
+      content: "Footer";
+      font-size: $defaultFontSize;
+    }
+  }
+
+}
